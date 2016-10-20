@@ -3,9 +3,6 @@ $.getJSON("data/products.json",function(data){
 	for(var i=0;i<data.length;i++){
 		$("#productsbox").append(getProductHtml(data[i]));
 	}
-	$(".product").draggable({
-		helper: "clone"
-	});	
 });
 
 function getProductHtml(data){
@@ -19,6 +16,11 @@ function getProductHtml(data){
 	return product;
 }
 
+$("body").on("mouseover",".product",function(){
+	$(this).draggable({
+		helper: "clone"
+	});	
+});
 
 
 $(".cartbox").droppable({
